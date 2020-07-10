@@ -2,6 +2,8 @@ package kr.co.ca;
 
 
 
+import java.io.File;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +17,16 @@ import kr.co.util.utils;
 public class UploadController {
 
 
+	private String uploadPath = "C:" + File.separator + "upload";
+
+
 	@RequestMapping(value = "/uploadform", method = RequestMethod.POST)
 	public void uploadform(MultipartHttpServletRequest request, Model model) throws Exception {
 		MultipartFile file = request.getFile("file");
 		
 		String originalName = file.getOriginalFilename();
 		
-		String fileName = utils.saveFile(originalName, file);
+		String fileName = utils.saveFile(originalName, file, uploadPath);
 		model.addAttribute("fileName", fileName);
 	}
 	
