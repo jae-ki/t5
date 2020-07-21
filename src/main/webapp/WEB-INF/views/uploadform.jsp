@@ -20,8 +20,7 @@
 	<form enctype="multipart/form-data" action="/uploadform" method="post">
 		<input type="file" name="file"><input type="submit" value="파일업로드">
 	
-	</form>sadddasadas
-	sadsadsadsadsad
+	</form>
 
 </body>
 </html>
